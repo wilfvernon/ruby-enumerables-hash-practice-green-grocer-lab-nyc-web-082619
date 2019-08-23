@@ -67,5 +67,25 @@ def checkout(cart, coupons)
   end
   total
  
+ def apply_coupons(cart, coupons = [])
+  coupon_cart = cart.clone
+  cart.each do |item, value|
+    coupons.each do |coupon|
+      if coupon[:item] == item
+        if coupon_cart["#{item} W/COUPON"] == nil 
+            coupon_cart["#{item} W/COUPON"] ={}
+        end
+        if coupon_cart["#{item} W/COUPON"][:count] == nil
+            coupon_cart["#{item} W/COUPON"][:count] = 0
+        end
+        coupon_cart[item][:count] = (cart[item][:count] % coupon[:num])
+        coupon_cart["#{item} W/COUPON"][:price] = (coupon[:cost] / coupon[:num])
+        coupon_cart["#{item} W/COUPON"][:clearance] = cart[item][:clearance]
+        coupon_cart["#{item} W/COUPON"][:count] += coupon[:num]
+      end
+    end
+  end
+  coupon_cart
+end
  
 end
