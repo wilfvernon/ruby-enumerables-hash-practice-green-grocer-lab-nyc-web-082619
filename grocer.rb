@@ -47,7 +47,10 @@ end
 ## CHECKOUT ##
 
 def checkout(cart, coupons = [])
-  total = 0
+  total_cons = 0
+  total_coup = 0
+  total_clear = 0
+  grand_total = 0
   
   def consolidate_cart(cart)
     carthash = Hash.new
@@ -63,9 +66,9 @@ def checkout(cart, coupons = [])
   
   cons_cart = consolidate_cart(cart)
   cons_cart.each_key do |item|
-    total += (cons_cart[item][:price] * cons_cart[item][:count])
+    total_cons += (cons_cart[item][:price] * cons_cart[item][:count])
   end
-  total
+  total_cons
  
   def apply_coupons(cart, coupons)
     coupon_cart = cart.clone
@@ -89,5 +92,10 @@ def checkout(cart, coupons = [])
   end
   
   coup_cart = apply_coupons(cons_cart, coupons)
+  coup_cart.each_key do |item|
+    total_coup += (cons_cart[item][:price] * cons_cart[item][:count])
+  #binding.pry
+  end
   binding.pry
+  total_coup
 end
