@@ -114,4 +114,6 @@ def checkout(cart, coupons = [])
     total_clear += (clear_cart[item][:price] * clear_cart[item][:count])
   end
   total_clear
+    if total_clear > 100
+      grand_total = total_clear - (total_clear
 end
