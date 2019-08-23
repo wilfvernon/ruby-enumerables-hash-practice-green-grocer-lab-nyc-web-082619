@@ -57,7 +57,7 @@ def checkout(cart, coupons)
     carthash
   end
   cons_cart = consolidate_cart(cart)
-    cons_cart.each {|item, value|total += item[:price]}
+    cons_cart.each_key {|item|total += item[:price]}
     total
       binding.pry
 end
