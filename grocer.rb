@@ -97,4 +97,15 @@ def checkout(cart, coupons = [])
     total_coup += (coup_cart[item][:price] * coup_cart[item][:count])
   end
   total_coup
+  
+  def apply_clearance(cart)
+    clearance_cart = cart.clone
+    clearance_cart.each_key do |item|
+      oldprice = cart[item][:price]
+      if clearance_cart[item][:clearance]
+        clearance_cart[item][:price] = oldprice - (oldprice / 5)
+      end
+    end
+    clearance_cart
+  end
 end
