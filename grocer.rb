@@ -51,6 +51,7 @@ def checkout(cart, coupons)
     carthash = Hash.new
     countarray = cart.each do |hash|
       hash[hash.keys.first][:count] = cart.count(hash)
+      binding.pry
     end
     countarray.each do |item|
       carthash[item.keys.first] = item.values.first
