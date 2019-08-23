@@ -75,6 +75,7 @@ def checkout(cart, coupons = [])
     cart.each do |item, value|
     coupons.each do |coupon|
       if coupon[:item] == item
+        binding.pry
         if coupon_cart["#{item} W/COUPON"] == nil 
             coupon_cart["#{item} W/COUPON"] ={}
         end
