@@ -54,7 +54,6 @@ def checkout(cart, coupons)
     countarray = cart.each do |chash|
       binding.pry
       chash[chash.keys.first][:count] = cart.count(chash)
-      
     end
     countarray.each do |item|
       carthash[item.keys.first] = item.values.first
@@ -67,5 +66,5 @@ def checkout(cart, coupons)
     total += (cons_cart[item][:price] * cons_cart[item][:count])
   end
   total
- #binding.pry
+ binding.pry
 end
