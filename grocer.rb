@@ -3,7 +3,7 @@ def consolidate_cart(cart)
   carthash = Hash.new
   countarray = cart.each do |hash|
     hash[hash.keys.first][:count] = cart.count(hash)
-    binding.pry
+    #binding.pry
   end
   countarray.each do |item|
     carthash[item.keys.first] = item.values.first
@@ -48,6 +48,7 @@ end
 
 def checkout(cart, coupons)
   total = 0
+  
   def consolidate_cart(cart)
     carthash = Hash.new
     countarray = cart.each do |hash|
@@ -59,6 +60,7 @@ def checkout(cart, coupons)
     end
     carthash
   end
+  
   cons_cart = consolidate_cart(cart)
   cons_cart.each_key do |item|
     total += (cons_cart[item][:price] * cons_cart[item][:count])
