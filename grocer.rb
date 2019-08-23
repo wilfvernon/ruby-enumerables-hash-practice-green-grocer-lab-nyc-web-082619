@@ -46,7 +46,7 @@ end
 
 ## CHECKOUT ##
 
-def checkout(cart, coupons)
+def checkout(cart, coupons = [])
   total = 0
   
   def consolidate_cart(cart)
@@ -67,9 +67,9 @@ def checkout(cart, coupons)
   end
   total
  
- def apply_coupons(cart, coupons = [])
-  coupon_cart = cart.clone
-  cart.each do |item, value|
+  def apply_coupons(cart, coupons)
+    coupon_cart = cart.clone
+    cart.each do |item, value|
     coupons.each do |coupon|
       if coupon[:item] == item
         if coupon_cart["#{item} W/COUPON"] == nil 
@@ -86,6 +86,6 @@ def checkout(cart, coupons)
     end
   end
   coupon_cart
-end
+  end
  
 end
