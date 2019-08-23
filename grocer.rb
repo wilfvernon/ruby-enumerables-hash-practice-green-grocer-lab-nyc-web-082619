@@ -94,7 +94,7 @@ def checkout(cart, coupons = [])
   coup_cart = apply_coupons(cons_cart, coupons)
   coup_cart.each_key do |item|
     total_coup += (cons_cart[item][:price] * cons_cart[item][:count])
-  binding.pry
+  #binding.pry
   end
   #binding.pry
   total_coup
