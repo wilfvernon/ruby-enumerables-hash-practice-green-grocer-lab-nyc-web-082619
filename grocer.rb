@@ -87,5 +87,7 @@ def checkout(cart, coupons = [])
     end
     coupon_cart
   end
- 
+  
+  coup_cart = apply_coupons(cons_cart, coupons)
+  binding.pry
 end
