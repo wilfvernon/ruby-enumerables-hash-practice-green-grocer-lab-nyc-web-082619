@@ -110,7 +110,7 @@ def checkout(cart, coupons = [])
   end
   
   clear_cart = apply_clearance(coup_cart)
-  clear_cart_cart.each_key do |item|
+  clear_cart.each_key do |item|
     total_clear += (clear_cart[item][:price] * clear_cart[item][:count])
   end
   total_clear
