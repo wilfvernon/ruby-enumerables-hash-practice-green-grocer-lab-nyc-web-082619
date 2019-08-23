@@ -52,8 +52,9 @@ def checkout(cart, coupons)
   def consolidate_cart(cart)
     carthash = Hash.new
     countarray = cart.each do |hash|
-      hash[hash.keys.first][:count] = cart.count(hash)
       binding.pry
+      hash[hash.keys.first][:count] = cart.count(hash)
+      
     end
     countarray.each do |item|
       carthash[item.keys.first] = item.values.first
