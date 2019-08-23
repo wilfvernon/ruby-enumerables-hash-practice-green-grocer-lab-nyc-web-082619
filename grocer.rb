@@ -96,6 +96,6 @@ def checkout(cart, coupons = [])
     total_coup += (cons_cart[item][:price] * cons_cart[item][:count])
   #binding.pry
   end
-  binding.pry
+  #binding.pry
   total_coup
 end
