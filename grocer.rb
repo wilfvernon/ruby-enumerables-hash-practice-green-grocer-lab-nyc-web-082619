@@ -59,7 +59,7 @@ def checkout(cart, coupons)
   cons_cart = consolidate_cart(cart)
   #binding.pry
   cons_cart.each_key do |item|
-    total =+ (cons_cart[item][:price] * cons_cart[item][:count])
+    total += (cons_cart[item][:price] * cons_cart[item][:count])
   end
   total
 binding.pry
