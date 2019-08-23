@@ -116,4 +116,5 @@ def checkout(cart, coupons = [])
   total_clear
     if total_clear > 100
       grand_total = total_clear - (total_clear/10)
+    end
 end
